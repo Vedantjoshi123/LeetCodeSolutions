@@ -24,15 +24,19 @@ class Solution {
          int n = nums.length;
         int[] ans = new int[n];
         
-        ans[0] = 1;
-        for (int i = 1; i < n; i++) {
-            ans[i] = ans[i - 1] * nums[i - 1];
+        for(int i=0; i<n; i++){
+            ans[i] = 1;
         }
-        
-        int right = 1;
-        for (int i = n - 1; i >= 0; i--) {
-            ans[i] *= right;
-            right *= nums[i];
+         
+        int prefix = 1;
+        for(int i=0; i<n; i++){
+            ans[i] = prefix;
+            prefix = prefix * nums[i];
+        }
+        int suffix = 1;
+        for(int i=n-1; i>=0; i--){
+            ans[i] = ans[i] * suffix;
+            suffix = suffix * nums[i];
         }
         
         return ans;
