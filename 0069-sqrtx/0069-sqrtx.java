@@ -7,10 +7,10 @@ class Solution {
         while (left <= right) {
             int mid = left + (right - left) / 2;
             if (mid <= x / mid) {
-                ans = mid;  // mid is a potential answer
-                left = mid + 1;  // try to find a larger value
+                ans = mid; 
+                left = mid + 1; 
             } else {
-                right = mid - 1;  // mid is too large
+                right = mid - 1; 
             }
         }
         return ans;
