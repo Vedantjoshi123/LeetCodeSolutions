@@ -1,20 +1,35 @@
 class Solution {
     public int singleNumber(int[] arr) {
-        int n = arr.length;
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
+             for (int i = 0; i < arr.length; i++) {
+            int count = 0;
+            for (int j = 0; j < arr.length; j++) {
                 if (arr[i] == arr[j]) {
-                    arr[i] = -1;
-                    arr[j] = -1;
+                    count++;
                 }
             }
-        }
-        for (int i = 0; i < n; i++) {
-            if (arr[i] != -1) {
+            if (count == 1) {
                 return arr[i];
             }
         }
         return -1;
+   
+   
+   
+        // int n = arr.length;
+        // for (int i = 0; i < n; i++) {
+        //     for (int j = i + 1; j < n; j++) {
+        //         if (arr[i] == arr[j]) {
+        //             arr[i] = -1;
+        //             arr[j] = -1;
+        //         }
+        //     }
+        // }
+        // for (int i = 0; i < n; i++) {
+        //     if (arr[i] != -1) {
+        //         return arr[i];
+        //     }
+        // }
+        // return -1;
 
         // for(int i=0; i<nums.length; i++){
         // boolean flag = false;
