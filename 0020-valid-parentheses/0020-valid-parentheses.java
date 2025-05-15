@@ -7,14 +7,19 @@ class Solution {
                 st.push(currEle);
             }
             else{
-                if( ((currEle == ')') && (st.peek() != '(')) || 
-                    ((currEle == '}') && (st.peek() != '{')) || 
-                    ((currEle == ']') && (st.peek() != '['))
-                ){
-                    return false;
+                if(!st.isEmpty()){
+                    if( ((currEle == ')') && (st.peek() != '(')) || 
+                        ((currEle == '}') && (st.peek() != '{')) || 
+                        ((currEle == ']') && (st.peek() != '['))
+                    ){
+                        return false;
+                    }
+                    else{
+                        st.pop();
+                    }
                 }
                 else{
-                    st.pop();
+                    return false;
                 }
             }
         }
