@@ -10,13 +10,27 @@
  */
 class Solution {
     public ListNode reverseList(ListNode head) {
-        ListNode prev = null;
-        while(head != null){
-            ListNode next = head.next;
-            head.next = prev;
-            prev = head;
-            head = next;
-        }
-        return prev;
+// Three pointer method:
+    ListNode t1 = null;
+    ListNode t2 = head;
+    ListNode t3;
+    while(t2 != null){
+        t3 = t2.next;
+        t2.next = t1;
+        t1 = t2;
+        t2 = t3;
+    }
+    head = t1;
+    return head;
+
+
+        // ListNode prev = null;
+        // while(head != null){
+        //     ListNode next = head.next;
+        //     head.next = prev;
+        //     prev = head;
+        //     head = next;
+        // }
+        // return prev;
     }
 }
