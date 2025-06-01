@@ -1,17 +1,42 @@
 class Solution {
     public int singleNumber(int[] arr) {
-             for (int i = 0; i < arr.length; i++) {
-            int count = 0;
-            for (int j = 0; j < arr.length; j++) {
-                if (arr[i] == arr[j]) {
-                    count++;
-                }
-            }
-            if (count == 1) {
-                return arr[i];
-            }
+        //optimal :
+        int xor = 0;
+        for(int i=0; i<arr.length; i++){
+            xor = xor ^ arr[i];
         }
-        return -1;
+        return xor;
+
+
+        //      int left = 0, right = arr.length - 1;
+        // while (left < right) {
+        //     int mid = left + (right - left) / 2;
+        //     if (mid % 2 == 1) {
+        //         mid--;
+        //     }
+        //     if (arr[mid] == arr[mid + 1]) {
+        //         left = mid + 2;
+        //     } else {
+        //         right = mid;
+        //     }
+        // }
+
+        // return arr[left];
+
+
+
+        //      for (int i = 0; i < arr.length; i++) {
+        //     int count = 0;
+        //     for (int j = 0; j < arr.length; j++) {
+        //         if (arr[i] == arr[j]) {
+        //             count++;
+        //         }
+        //     }
+        //     if (count == 1) {
+        //         return arr[i];
+        //     }
+        // }
+        // return -1;
    
    
    
